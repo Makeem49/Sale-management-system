@@ -9,8 +9,14 @@
     {% block css %}
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/all.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/profile.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/css/all.css')}}">
     {% endblock css %}
+
+    <!-- Googel fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
     {% block title %}
         <title>Home page</title>
@@ -33,8 +39,8 @@
 
             <div class="links">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
                     <li><a href="#">Market</a></li>
                     <li><a href="#">Help</a></li>
                     <li><a href="#">Login</a></li>
@@ -43,111 +49,23 @@
         </nav>
     {% endblock navbar %}
 
+    <!-- Prompt message -->
+    {% block message %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li class="message">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    
+    {% endblock message %}
+
     <!-- Content page -->
     {% block content %}
-    <div class="table" style="overflow-x: auto;">
-        <table>
-            <thead>
-                <th>S/N</th>
-                <th>Issuer</th>
-                <th>Goods</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-                <th>Time/Date</th>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="pagination">
-
-        </div>
-    </div>
-
-
+        {% include 'common.html' %}
     {% endblock content %}
     
     <!-- Footer page -->
