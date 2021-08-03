@@ -1,0 +1,44 @@
+.profile {
+    width: 1200px;
+    min-height: 400px;
+    display: flex;
+    justify-content: space-around;
+    margin: 100px auto;
+    color: black;
+}
+
+.div {
+    margin: 20px 0px 0px 200px;
+}
+
+.info {
+    width: 40%;
+    min-height: 400px;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    padding-left: 20px;
+} 
+
+.avater {
+    width: 40%;
+    height: inherit;
+}
+
+.avater img {
+    height: 100%;
+    width: 400px;
+}
+
+#name p, #identification p, #account p, #password p, #sales p, #return p {
+    display: inline-block;
+}
+
+.goods .table{
+    margin: 60px auto;
+}
+
+.goods h2{
+    min-height: auto;
+    margin-left: 200px;
+}
