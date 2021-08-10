@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Dashboard</title>
+{% endblock %}
+
+{% block content %}
+<div class="div">
+    <h1>Employee Dashborad</h1>
+</div>
+
+<div class="profile">
+    <div class="info">
+        <div id="name">
+            <p>Username:</p>
+            <p>John Doe</p>
+        </div>
+        <div id="identification">
+            <p>Identification Number: </p>
+            <p>12323455</p>
+        </div>
+        <div id="account">
+            <p>Gmail Account:</p>
+            <p>Gmail@gmail.com</p>
+        </div>
+        <div id="password">
+            <p>Password:</p>
+            <p>************</p>
+        </div>
+        <div id="sales">
+            <p>Sales:</p>
+            <p>12</p>
+        </div>
+        <div id="return">
+            <p>Return Goods :</p>
+            <p>7</p>
+        </div>
+
+    </div>
+
+    <div class="avater">
+        <img src="{{url_for('static', filename='images/avater.jpg')}}" alt="">
+    </div>
+</div>
+
+<div class="goods">
+    <h2>Sales goods</h2>
+    {% include 'common.html' %}
+
+    <h2>Return goods</h2>
+    {% include 'common.html' %}
+</div>
+{% endblock content %}
