@@ -9,11 +9,15 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+username = "makeem49"
+password = "Olayinka1?"
+dbname = "management"
+
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '369f9d5158f5ec45f4c51ce6a1ab74'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, 'management')
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{username}:{password}@localhost/{dbname}"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
@@ -28,8 +32,8 @@ class Product(db.Model):
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key=True)
     product_name = db.Column(db.String(64), nullable = False, unique = True, index=True)
-    description = db.Column(db.Text(256), nullable = False)
-    employers = db.relationship('Employer', backref='product', lazy='dynamic')
+    description = db.Column(db.Text, nullable = False)
+    employers = db.relationship('Employer', backref='product', lazy='dynamic', cascade = 'all, delete')
 
     def __repr__(self):
         return '{0} products'.format(self.product_name)
@@ -79,6 +83,10 @@ def home():
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/salespage', methods=['GET', 'POST'])
+def sale_page():
+    return render_template('sales-page.html')
 
 @app.route("/test", methods=['GET', 'POST'])
 def text():
