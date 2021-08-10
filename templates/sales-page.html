@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block title %}
+<title>Sales page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="salesbox">
+
+    <form action="#" method="post">
+
+        <div class="goods">
+            <label for="goods">Goods : </label>
+            <input type="text" placeholder="Rice, Milk..." , value="" id="goods">
+        </div>
+
+        <div class="quantity">
+            <label for="quantity">Quantity : </label>
+            <input type="number" name="quantity" id="quantity" value="0">
+        </div>
+
+        <div class="amount">
+            <label for="amount">Amount : </label>
+            <input type="number" name="amount" id="amount" readonly>
+        </div>
+
+        <div class="total">
+            <label for="total">Total : </label>
+            <input type="number" name="total" id="total" readonly>
+        </div>
+
+        <div class="date">
+            <label for="date">Date : </label>
+            <input type="text" readonly id="date">
+        </div>
+
+        <button type="submit" id="sell">Sell</button>
+
+    </form>
+
+
+
+</div>
+
+
+
+{% endblock %}
